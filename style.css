@@ -1,0 +1,149 @@
+:root{
+    --clr-neon: hsl(341 100% 90%);
+}
+
+*
+
+{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+}
+body
+{
+    min-height: 100vh;
+    background: #000000;
+    color: var(--clr-neon);
+}
+.container
+{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+.bubbles
+{
+    position: relative;
+    display: flex;
+    z-index: -100;
+}
+.bubbles span
+{
+    position: relative;
+    width: 25px;
+    height: 25px;
+    background: #FEFEEA;
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #FDFD96
+
+,
+    0 0 50px #fdfd96,
+    0 0 100px #fdfd96;
+    animation: animate 15s linear infinite;
+    animation-duration: calc(250s / var(--i));
+}
+.bubbles span:nth-child(even)
+{
+    background: #EBC5C7;
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #E6B6B9, 
+    0 0 50px #E6B6B9,
+    0 0 100px #E6B6B9;
+}
+.wrapper{
+    position: relative;
+    width: 700px;
+    height: 340px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    margin: auto;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 277px;
+}
+.item{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #FFF5F8;
+    margin-top: 55px;
+}
+button{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 30px;
+}
+button{
+    background: none;
+    color: #ccc;
+    width: 180px;
+    height: 60px;
+    border: 1px solid #E6B6B9;
+    font-size: 18px;
+    border-radius: 100px;
+    transition: .6s;
+    overflow: hidden;
+}
+button:focus{
+    outline: none;
+}
+button:before{
+    content:'';
+    display: block;
+    position: absolute;
+    background: rgba(225,225,225,.5);
+    width: 60px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: .5s;
+    filter: blur(20px);
+    transform: translateX(-130px) skewX(-15deg);
+}
+button:after{
+    content:'';
+    display: block;
+    position: absolute;
+    background: rgba(225,225,225,.2);
+    width: 30px;
+    height: 100%;
+    left: 30px;
+    top: 0;
+    opacity: 0;
+    filter: blur(20px);
+    transform: translateX(-100px) skewX(-15deg);
+}
+button:hover{
+    background: #E3AEB1;
+    cursor: pointer;
+}
+button:hover:before{
+    transform: translateX(300px) skewX()(-15deg);
+    opacity: .6;
+    transition: .7s;
+}
+button:hover:after{
+    transform: translateX(300px) skewX(-15deg);
+    opacity: 1;
+    transition: .7s;
+}
+@keyframes animate
+{
+    0%
+    {
+        transform: translateY(100vh) scale(0);
+    }
+    100%
+    {
+        transform: translateY(-10vh) scale(1);
+    }
+}
